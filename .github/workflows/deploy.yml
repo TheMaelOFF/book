@@ -1,0 +1,19 @@
+name: Deploy to Static.app
+
+on:
+  push:
+    branches: [ "main" ] # Vérifiez que votre branche s'appelle bien "main" (ou "master")
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    name: Deploy
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      
+      - name: Deploy to Static.app
+        uses: designmodo/static-app-deploy-action@v1
+        with:
+          api_key: ${{ secrets.STATIC_APP_API_KEY }}
+          root_directory: '.'
