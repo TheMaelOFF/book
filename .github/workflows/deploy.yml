@@ -13,8 +13,8 @@ jobs:
         uses: actions/checkout@v3
       
       - name: Deploy to Static.app
-        # CORRECTION ICI : on a remplacé @v1 par @main
         uses: designmodo/static-app-deploy-action@main
         with:
-          api_key: ${{ secrets.STATIC_APP_API_KEY }}
+          # CORRECTION ICI : "api-key" avec un tiret, pas un underscore
+          api-key: ${{ secrets.STATIC_APP_API_KEY }}
           root_directory: '.'
